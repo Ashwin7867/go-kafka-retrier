@@ -21,6 +21,8 @@ func NewRetrier(config *config.Config) (*Retrier, error) {
 		return nil, err
 	}
 
+	log.Println("Kafka consumer group created successfully")
+
 	return &Retrier{
 		config:   config,
 		consumer: consumer,
@@ -34,6 +36,7 @@ func (r *Retrier) ProcessMessages(ctx context.Context) error {
 	}
 
 	for {
+		log.Println("Starting message consumption")
 		err := r.consumer.Consume(ctx, []string{r.config.Topic}, handler)
 		if err != nil {
 			log.Printf("Error from consumer: %v", err)
@@ -47,6 +50,7 @@ func (r *Retrier) ProcessMessages(ctx context.Context) error {
 }
 
 func (r *Retrier) HandleMessage(msg *sarama.ConsumerMessage) error {
+	log.Printf("Handling message: %s", string(msg.Value))
 	// Implement your message handling logic here
 	return fmt.Errorf("dummy error")
 }

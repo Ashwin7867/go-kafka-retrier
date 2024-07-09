@@ -24,7 +24,7 @@ func LoadConfig() *Config {
 		log.Fatal("Error loading .env file")
 	}
 
-	return &Config{
+	config := &Config{
 		KafkaBrokers:  os.Getenv("KAFKA_BROKERS"),
 		ConsumerGroup: os.Getenv("CONSUMER_GROUP"),
 		Topic:         os.Getenv("TOPIC"),
@@ -32,6 +32,9 @@ func LoadConfig() *Config {
 		MaxRetries:    getIntFromEnv("MAX_RETRIES", 5),
 		RetryDelay:    getDurationFromEnv("RETRY_DELAY", 5*time.Second),
 	}
+
+	log.Printf("Config loaded: %+v", config)
+	return config
 }
 
 func getIntFromEnv(key string, defaultValue int) int {
