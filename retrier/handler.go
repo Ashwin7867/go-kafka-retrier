@@ -33,6 +33,7 @@ func (h *messageHandler) ConsumeClaim(sess sarama.ConsumerGroupSession, claim sa
 					Value: sarama.StringEncoder(msg.Value),
 				}
 				producer.SendMessage(dlqMsg)
+				log.Printf("Message sent to DLQ: %s", string(msg.Value))
 				break
 			}
 
