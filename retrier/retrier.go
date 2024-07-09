@@ -52,5 +52,8 @@ func (r *Retrier) ProcessMessages(ctx context.Context) error {
 func (r *Retrier) HandleMessage(msg *sarama.ConsumerMessage) error {
 	log.Printf("Handling message: %s", string(msg.Value))
 	// Implement your message handling logic here
-	return fmt.Errorf("dummy error")
+	if string(msg.Value) == "simulate-failure" {
+		return fmt.Errorf("simulated error")
+	}
+	return nil
 }
