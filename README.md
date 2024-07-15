@@ -15,8 +15,8 @@ The go-kafka-retrier package is a Go-based library designed to enhance the relia
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/kafka-retrier.git
-cd kafka-retrier
+git clone https://github.com/Ashwin7867/go-kafka-retrier.git
+cd go-kafka-retrier
 ```
 
 2. Install dependencies:
@@ -35,8 +35,8 @@ go mod tidy
 ```env
 KAFKA_BROKERS=localhost:9092
 CONSUMER_GROUP=my-consumer-group
-TOPIC=my-topic
-DLQ_TOPIC=my-dlq-topic
+TOPIC=test-topic
+DLQ_TOPIC=test-dlq-topic
 MAX_RETRIES=3
 RETRY_DELAY=5s
 ```
@@ -54,8 +54,8 @@ import (
     "os/signal"
     "syscall"
 
-    "github.com/yourusername/kafka-retrier/config"
-    "github.com/yourusername/kafka-retrier/retrier"
+    "github.com/Ashwin7867/go-kafka-retrier/config"
+    "github.com/Ashwin7867/go-kafka-retrier/retrier"
 )
 
 func main() {
@@ -113,7 +113,7 @@ func (r *Retrier) HandleMessage(msg *sarama.ConsumerMessage) error {
 - Use Kafka console producer to send test messages:
 
 ```bash
-kafka-console-producer.sh --broker-list localhost:9092 --topic my-topic
+kafka-console-producer.sh --broker-list localhost:9092 --topic test-topic
 > simulate-failure
 
 ```
@@ -122,7 +122,7 @@ kafka-console-producer.sh --broker-list localhost:9092 --topic my-topic
 - Use Kafka console consumer to read messages from the DLQ topic:
 
 ```bash
-kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic my-dlq-topic --from-beginning
+kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic test-dlq-topic --from-beginning
 
 ```
 
