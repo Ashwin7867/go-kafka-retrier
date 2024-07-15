@@ -129,15 +129,15 @@ kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic test-dlq-top
 
 ## Code Structure:
 
- 1. config/config.go: Handles loading and parsing configuration from the environment.
- 2. retrier/retrier.go: Implements the retry mechanism and message processing logic.
- 3. retrier/handler.go: Manages message consumption and retry handling.
+ - config/config.go: Handles loading and parsing configuration from the environment.
+ - retrier/retrier.go: Implements the retry mechanism and message processing logic.
+ - retrier/handler.go: Manages message consumption and retry handling.
 
 
 
 
 ## Summary:
-The kafka-retrier package improves the stability and efficiency of Kafka message handling in Go applications by providing a robust retry mechanism and DLQ handling. By integrating this package, you can ensure that unprocessable messages are managed effectively, contributing to the overall reliability of your message processing system.
+The go-kafka-retrier package improves the stability and efficiency of Kafka message handling in Go applications by providing a robust retry mechanism and DLQ handling. By integrating this package, you can ensure that unprocessable messages are managed effectively, contributing to the overall reliability of your message processing system.
 
 
 
