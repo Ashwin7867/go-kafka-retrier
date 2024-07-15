@@ -30,7 +30,7 @@ go mod tidy
 ## Usage
 
 ### 1. Configuration
--Create a .env file in your project directory with the following content:
+- Create a .env file in your project directory with the following content:
 
 ```env
 KAFKA_BROKERS=localhost:9092
