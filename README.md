@@ -1,4 +1,4 @@
-# Kafka Retirer
+# Go Kafka Retrirer
 
 The go-kafka-retrier package is a Go-based library designed to enhance the reliability of Kafka message processing. It implements a configurable retry mechanism and Dead Letter Queue (DLQ) handling to ensure unprocessable messages are handled appropriately.
 
@@ -91,6 +91,7 @@ go run main.go
 ```
 
 
+
 ## Testing the DLQ Mechanism
 
 ### 1. Simulate Message Failures:
@@ -128,14 +129,16 @@ kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic my-dlq-topic
 
 ## Code Structure:
 
-### 1. config/config.go: Handles loading and parsing configuration from the environment.
-### 2. retrier/retrier.go: Implements the retry mechanism and message processing logic.
-### 3. retrier/handler.go: Manages message consumption and retry handling.
+ 1. config/config.go: Handles loading and parsing configuration from the environment.
+ 2. retrier/retrier.go: Implements the retry mechanism and message processing logic.
+ 3. retrier/handler.go: Manages message consumption and retry handling.
 
 
 
-### Summary:
+
+## Summary:
 The kafka-retrier package improves the stability and efficiency of Kafka message handling in Go applications by providing a robust retry mechanism and DLQ handling. By integrating this package, you can ensure that unprocessable messages are managed effectively, contributing to the overall reliability of your message processing system.
+
 
 
 ### Contributing
